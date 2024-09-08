@@ -6,8 +6,9 @@ import loader from "./loader.json"
 
 
 
-export default function Weather({ loc, data, error }) {
+export default function Weather({ loc, data, error,prevcitychange }) {
   if (error) {
+    prevcitychange("")
     return <p className='err'>{error}</p>;
   }
 

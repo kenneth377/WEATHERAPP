@@ -8,10 +8,17 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [location, setLocation] = useState(null);
   const [error, setError] = useState(null);
-  const [latlon , setLatLon] = useState({"lon":-0.1969,"lat":5.556})
+  const [latlon , setLatLon] = useState({"lon":-0.1969,"lat":5.556});
+  const [prevcity, setPrevCity] = useState("");
 
   const API_KEY = process.env.REACT_APP_API_KEY
- 
+
+  function prevcitychange(city){
+    setPrevCity(city)
+  }
+  function getprevcity(){
+    return prevcity;
+  }
   function searchbycity(city) {
     if (!city.trim()) {
       setWeatherData(null);
@@ -106,9 +113,9 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Weather loc={location} data={weatherData} error={error} />
-        <Searchbox searchbycity={searchbycity}/>
-        <More data={weatherData} error={error} />
+        <Weather loc={location} data={weatherData} error={error} prevcitychange={prevcitychange} />
+        <Searchbox searchbycity={searchbycity} getprevcity={getprevcity} prevcitychange={prevcitychange}/>
+        <More data={weatherData} error={error}/>
       </div>
     </div>
   );

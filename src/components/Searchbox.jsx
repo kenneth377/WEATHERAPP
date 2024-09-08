@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import './searchbox.css';
 
-export default function Searchbox({ searchbycity }) {
+export default function Searchbox({ searchbycity, prevcitychange,getprevcity }) {
   const [inputval, setInputval] = useState("");
-  const [prevcity, setPrevCity] = useState("")
 
   function trackval(e) {
     setInputval(e.target.value);
   }
 
   function handlesearch() {
-    if(prevcity.toLowerCase() == inputval.toLowerCase()){
+    if(getprevcity().toLowerCase() === inputval.toLowerCase()){
       setInputval("");
       return;
     }
@@ -21,10 +20,10 @@ export default function Searchbox({ searchbycity }) {
   } 
 
   function handleclick(city) {
-    if(prevcity.toLowerCase() == city.toLowerCase()){
+    if(getprevcity().toLowerCase() === city.toLowerCase()){
       return;
     }
-    setPrevCity(city)
+    prevcitychange(city)
     searchbycity(city);
   }
 
