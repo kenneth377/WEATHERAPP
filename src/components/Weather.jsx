@@ -12,11 +12,11 @@ export default function Weather({ loc, data, error,prevcitychange,coord }) {
 
   const [iconlink, setIconLink] = useState(sunnylottie);
   const [now, setNow] = useState(new Date())
-  const [zone,setZone] = useState("")
+  const [zone,setZone] = useState("GMT")
   const timekey = process.env.REACT_APP_TIME_KEY
 
   useEffect(() => {
-    fetch(`https://api-bdc.net/data/timezone-by-location?latitude=${coord.lat}&longitude=${coord.lon}&key=bdc_9267894c1b964b7ca6e1e64f7659a9a1`)
+    fetch(`https://api-bdc.net/data/timezone-by-location?latitude=${coord.lat}&longitude=${coord.lon}&key=${timekey}`)
       .then(res => res.json())
       .then(data => {
         setNow(new Date(data.localTime))
