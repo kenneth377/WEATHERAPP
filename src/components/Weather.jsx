@@ -19,8 +19,10 @@ export default function Weather({ loc, data, error,prevcitychange,coord }) {
     fetch(`https://api-bdc.net/data/timezone-by-location?latitude=${coord.lat}&longitude=${coord.lon}&key=${timekey}`)
       .then(res => res.json())
       .then(data => {
-        setNow(new Date(data.localTime))
-        setZone(data.effectiveTimeZoneShort)
+        if (data.localTime) {
+          setNow(new Date(data.localTime));
+          setZone(data.effectiveTimeZoneShort || "GMT");
+        }
       })
       .catch(error => console.error('Error fetching time data:', error));
   }, [data]);
