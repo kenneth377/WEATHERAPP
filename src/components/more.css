@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+}
+
+.App>.container .morebox{
+    grid-column: span 7;
+    grid-row: span 7;
+    /* overflow-y: scroll; */
+  }
+
+  
+.App>.container .morebox::-webkit-scrollbar{
+    width: 5px;
+    border-radius: 50px;
+  }
+
+  .App>.container .morebox::-webkit-scrollbar-thumb{
+    background-color: var(--scrollcolor);
+  }
+  
+  .App>.container .morebox::-webkit-scrollbar-track{
+    background-color: var(--other-color);
+    border-radius: 50px;
+  }
+  .App>.container .morebox::-webkit-scrollbar-button{
+    background-color: transparent;
+  }
+  
+
+.morebox{
+    padding: 10px;
+}
+
+.daydescription{
+    width: 100%;
+    height: 100%;
+
+}
+
+.daydescription>div{
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+}
+
+.lottie{
+    position: absolute;
+    width: 40%;
+    height: 80%;
+    left: 0;
+    top: 9%;
+}
+
+.lottiedescr{
+    float: right;
+    width: 50%;
+    height: 100%;
+    display: grid;
+    /* place-content: ; */
+    justify-content: space-around;
+    transition: opacity 0.5s ease-in-out;
+   
+}
+
+.lottiedescr h1{
+    font-size: 400%;
+}
+
+.lottiedescr p{
+    font-size: 150%;
+}
+
+.fadeout{
+
+    opacity: 0;
+}
+
+.fadein{
+    opacity: 1;
+}
+
+.lottiedescr .big{
+    font-size: 500%;
+}
+
+@media (max-width: 600px){
+    .App>.container .morebox{
+        display: grid;
+        place-content: center;
+    }
+
+    .lottiedescr{
+        float: right;
+        width: 100%;
+        height: 100%;
+        justify-self: center;
+    }
+    .lottiedescr h1{
+        font-size: 300%;
+    }
+    .lottiedescr .win{
+        font-size: 600%;
+    }
+
+    .lottiedescr .hum{
+        font-size: 300%;
+    }
+    
+}
