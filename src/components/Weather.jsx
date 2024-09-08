@@ -4,6 +4,7 @@ import Lottie from 'lottie-react';
 import loader from "./loader.json"
 import cloudlottie from "./cloudlottie.json"
 import sunnylottie from "./sunnylottie.json"
+import { useToast } from '@chakra-ui/react'
 
 
 
@@ -14,6 +15,9 @@ export default function Weather({ loc, data, error,prevcitychange,coord }) {
   const [zone,setZone] = useState("GMT")
   const timekey = process.env.REACT_APP_TIME_KEY
   const[datatemp,setDataTemp] = useState("cool")
+
+  const toast = useToast()
+  
 
   useEffect(() => {
     fetch(`https://api-bdc.net/data/timezone-by-location?latitude=${coord.lat}&longitude=${coord.lon}&key=${timekey}`)
@@ -49,6 +53,7 @@ export default function Weather({ loc, data, error,prevcitychange,coord }) {
   useEffect(()=>{
     document.documentElement.setAttribute('datatemp', datatemp)
   },[datatemp])
+  
   if (error) {
     prevcitychange("")
     return <p className='err'>{error}</p>;

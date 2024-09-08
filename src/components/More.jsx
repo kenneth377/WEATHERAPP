@@ -1,11 +1,23 @@
 import React from 'react'
 import "./more.css"
 import Moreslider from './Moreslider';
+import { useToast } from '@chakra-ui/react'
 
 
 export default function More({data, error}) {
+
+  const toast = useToast()
   if (error) {
-    return <div>Error: {error.message}</div>;
+    toast({
+      title: 'City not found.',
+      description: "Please check the city entered to see if there is a mix-up.",
+      status: 'error',
+      duration: 2000,
+      isClosable: true,
+    })
+
+    return
+    // return <div>Error: {error.message}</div>;
   }
 
   if (!data) {

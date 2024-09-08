@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Weather from './components/Weather';
 import Searchbox from './components/Searchbox';
 import More from './components/More';
+import { useToast } from '@chakra-ui/react';
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -10,7 +11,7 @@ function App() {
   const [error, setError] = useState(null);
   const [latlon , setLatLon] = useState({"lon":-0.1969,"lat":5.556});
   const [prevcity, setPrevCity] = useState("");
-
+  const toast = useToast()
 
   const API_KEY = process.env.REACT_APP_API_KEY
 
@@ -42,8 +43,14 @@ function App() {
         setError(null); 
       })
       .catch(err => {
-        console.error('Fetch error for weather data:', err);
-        console.log(err.message)
+        toast({
+          title: 'City not found.',
+          description: "Please check the city entered to see if there is a mix-up.",
+          status: 'error',
+          duration: 4000,
+          isClosable: true,
+        })
+        return
         setError(err.message);
         setWeatherData(null);
       });
