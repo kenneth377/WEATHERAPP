@@ -3,12 +3,19 @@
   color: darkblue;
 }
 
-:root{
+:root[datatemp="cool"]{
  --primary-color: rgba(0, 0, 139,.8);
- --secondary-color: aliceblue; 
+ --secondary-color: rgb(240, 248, 255); 
  --other-color: antiquewhite;
  --scrollcolor: darkblue;
 }
+
+:root[datatemp="hot"]{
+  --primary-color: rgba(139, 19, 0, 0.8);
+  --secondary-color: rgb(255, 248, 240); 
+  --other-color: antiquewhite;
+  --scrollcolor: darkblue;
+ }
 
 .App {
   text-align: center;

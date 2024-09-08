@@ -1,6 +1,5 @@
 import React,{useState, useEffect} from 'react';
 import './Weather.css';
-import sunnyImage from "./sunny.svg"
 import Lottie from 'lottie-react';
 import loader from "./loader.json"
 import cloudlottie from "./cloudlottie.json"
@@ -14,6 +13,7 @@ export default function Weather({ loc, data, error,prevcitychange,coord }) {
   const [now, setNow] = useState(new Date())
   const [zone,setZone] = useState("GMT")
   const timekey = process.env.REACT_APP_TIME_KEY
+  const[datatemp,setDataTemp] = useState("cool")
 
   useEffect(() => {
     fetch(`https://api-bdc.net/data/timezone-by-location?latitude=${coord.lat}&longitude=${coord.lon}&key=${timekey}`)
@@ -35,14 +35,20 @@ export default function Weather({ loc, data, error,prevcitychange,coord }) {
 
   useEffect(() => {
     if (data) {
-      if (data.main.temp > 22) {
+      if (data.main.temp > 20) {
         setIconLink(sunnylottie);
+        setDataTemp("hot")
       } else {
+        setDataTemp("cool")
         setIconLink(cloudlottie);
       }
     }
   }, [data]);
 
+
+  useEffect(()=>{
+    document.documentElement.setAttribute('datatemp', datatemp)
+  },[datatemp])
   if (error) {
     prevcitychange("")
     return <p className='err'>{error}</p>;

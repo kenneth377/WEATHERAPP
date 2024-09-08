@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 import Weather from './components/Weather';
 import Searchbox from './components/Searchbox';
 import More from './components/More';
-// import cloudlottie from "./cloudlottie.json"
-// import sunnylottie from "./sunnylottie.json"
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
