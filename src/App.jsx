@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import Weather from './components/Weather';
 import Searchbox from './components/Searchbox';
 import More from './components/More';
+// import cloudlottie from "./cloudlottie.json"
+// import sunnylottie from "./sunnylottie.json"
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -10,6 +12,7 @@ function App() {
   const [error, setError] = useState(null);
   const [latlon , setLatLon] = useState({"lon":-0.1969,"lat":5.556});
   const [prevcity, setPrevCity] = useState("");
+
 
   const API_KEY = process.env.REACT_APP_API_KEY
 
@@ -113,7 +116,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Weather loc={location} data={weatherData} error={error} prevcitychange={prevcitychange} />
+        <Weather loc={location} data={weatherData} error={error} prevcitychange={prevcitychange} coord={latlon}/>
         <Searchbox searchbycity={searchbycity} getprevcity={getprevcity} prevcitychange={prevcitychange}/>
         <More data={weatherData} error={error}/>
       </div>
