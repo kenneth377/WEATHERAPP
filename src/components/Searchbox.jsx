@@ -3,12 +3,17 @@ import './searchbox.css';
 
 export default function Searchbox({ searchbycity }) {
   const [inputval, setInputval] = useState("");
+  const [prevcity, setPrevCity] = useState("")
 
   function trackval(e) {
     setInputval(e.target.value);
   }
 
   function handlesearch() {
+    if(prevcity.toLowerCase() == inputval.toLowerCase()){
+      setInputval("");
+      return;
+    }
     if (inputval.trim()) {
       searchbycity(inputval);
       setInputval("");
@@ -16,6 +21,10 @@ export default function Searchbox({ searchbycity }) {
   } 
 
   function handleclick(city) {
+    if(prevcity.toLowerCase() == city.toLowerCase()){
+      return;
+    }
+    setPrevCity(city)
     searchbycity(city);
   }
 
