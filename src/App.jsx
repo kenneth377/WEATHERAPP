@@ -12,8 +12,13 @@ function App() {
   const [latlon , setLatLon] = useState({"lon":-0.1969,"lat":5.556});
   const [prevcity, setPrevCity] = useState("");
   const toast = useToast()
-
+  const [isVisible, setIsVisible] = useState(true);
   const API_KEY = process.env.REACT_APP_API_KEY
+
+
+  const toggleVisibility = () => {
+    setIsVisible(prevState => !prevState);
+  };
 
   function prevcitychange(city){
     setPrevCity(city)
@@ -121,8 +126,9 @@ function App() {
   return (
     <div className="App">
       <div className="container">
+        <button onClick={toggleVisibility}> {isVisible ? 'X' : 'L'}</button>
         <Weather loc={location} data={weatherData} error={error} prevcitychange={prevcitychange} coord={latlon}/>
-        <Searchbox searchbycity={searchbycity} getprevcity={getprevcity} prevcitychange={prevcitychange}/>
+        {isVisible &&<Searchbox searchbycity={searchbycity} getprevcity={getprevcity} prevcitychange={prevcitychange}/>}
         <More data={weatherData} error={error}/>
       </div>
     </div>

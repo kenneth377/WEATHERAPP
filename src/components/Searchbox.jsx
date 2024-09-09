@@ -50,7 +50,6 @@ export default function Searchbox({ searchbycity, prevcitychange,getprevcity }) 
 
   return (
     <div className='searchbox'>
-      <button className='closeopenbtn'>X</button>
       <input
         type="text"
         placeholder='Enter a city to search for'
