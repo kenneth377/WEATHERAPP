@@ -51,34 +51,45 @@
 }
 .App .container>button{
   position: absolute;
-  z-index: 1;
-  background-color: red;
-  font-size: 200%;
-  width: 10%;
-  display: none;
-  /* visibility: hidden; */
+  /* z-index: 1; */
+  background-color: var(--other-color);
+  /* font-size: 200%; */
+  width: 15%;
+  /* display: none; */
+  visibility: hidden;
 }
 
 
 @media (max-width: 600px) {
   *{
-    font-size: 104%;
+    font-size: 107%;
   }
   .App>.container {
     height: 100vh;
     width: 100vw;
     font-size: 50%;
     grid-template-columns: repeat(1,1fr);
-    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(10,1fr);
   }
-
+/* 
+  .App .container>div{
+    grid-row: span 8;
+  } */
   .App .container>button{
-    display: block;
+    /* display: block; */
+    visibility: visible;
+    grid-row: span 10;
+    grid-column: span 5;
+    font-size: 300%;
+    display: grid;
+    /* place-items: center; */
   }
 
-  .App .container>button .searchlottie{
-    font-size: 200%;
+
+  /* .App .container>button .searchlottie{
+    font-size: 600%;
+    /* background-color: blue; */
     /* width: 300%; */
-  }
+  /* } */ 
   
 }

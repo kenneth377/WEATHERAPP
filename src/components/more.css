@@ -88,8 +88,9 @@
     .App>.container .morebox{
         display: grid;
         place-content: center;
-        background-color: red;
-        height: 60%;
+        /* background-color: red; */
+        /* height: 60%; */
+        grid-row: span 5;
     }
     
     .lottiedescr{
