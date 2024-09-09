@@ -55,6 +55,7 @@
   background-color: red;
   font-size: 200%;
   width: 10%;
+  display: none;
   /* visibility: hidden; */
 }
 
@@ -71,5 +72,13 @@
     grid-template-columns: repeat(1,1fr);
   }
 
+  .App .container>button{
+    display: block;
+  }
+
+  .App .container>button .searchlottie{
+    font-size: 200%;
+    /* width: 300%; */
+  }
   
 }

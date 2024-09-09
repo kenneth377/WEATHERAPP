@@ -26,13 +26,6 @@
     margin: 5px;
     width: 60%;
 }
-.closeopenbtn{
-    width: 20%;
-    height: 20%;
-    font-size: 150%;
-    font-weight: bolder;
-    background-color: blue;
-}
 
 @media (max-width: 600px){
     .App>.container .searchbox{
