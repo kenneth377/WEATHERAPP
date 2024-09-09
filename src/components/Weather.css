@@ -60,7 +60,7 @@
 
 @media (max-width: 600px){
     .App>.container .weatherbox{
-        grid-row: span 6;
+        grid-row: span 4;
     }
     .weatherbox h1{
         font-size: 200%;
@@ -72,10 +72,10 @@
         font-size: 120%;
     }
     .weatherbox .info .moodandday{
-        grid-row:6/ span 10 ;
+        /* grid-row:6/ span 10 ; */
     }
     .weatherbox .info .deg{
-        font-size: 600%;
+        /* font-size: 600%; */
         grid-row: 1 /span 5;
     }
 }

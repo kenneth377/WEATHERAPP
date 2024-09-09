@@ -49,10 +49,10 @@
   display: grid;
   place-content: center;
 }
-.App .container>button{
-  position: absolute;
+.App .container>.button{
+  /* position: absolute; */
   /* z-index: 1; */
-  background-color: var(--other-color);
+  background-color: rgba(250, 235, 215,.3);
   /* font-size: 200%; */
   width: 15%;
   /* display: none; */
@@ -75,13 +75,15 @@
   .App .container>div{
     grid-row: span 8;
   } */
-  .App .container>button{
-    /* display: block; */
+  .App .container>.button{
+    /* display:  */
     visibility: visible;
-    grid-row: span 10;
-    grid-column: span 5;
+    grid-row: span 1;
+    grid-column: 1/span 1 ;
     font-size: 300%;
     display: grid;
+    /* width: 100%; */
+    background-color: black;
     /* place-items: center; */
   }
 

@@ -139,7 +139,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <button onClick={toggleVisibility}> {isVisible ? 'X' : <div className='searchlottie'><Lottie animationData={searchlottie}/></div>}</button>
+        <div className='button' onClick={toggleVisibility}> {isVisible ? 'X' :"L" }</div>
         <Weather loc={location} data={weatherData} error={error} prevcitychange={prevcitychange} coord={latlon}/>
         {isVisible &&<Searchbox searchbycity={searchbycity} getprevcity={getprevcity} prevcitychange={prevcitychange}/>}
         <More data={weatherData} error={error}/>
@@ -149,3 +149,5 @@ function App() {
 }
 
 export default App;
+
+{/* <div className='searchlottie'><Lottie animationData={searchlottie}/></div> */}
