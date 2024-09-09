@@ -48,3 +48,16 @@
     height: 70%;
 }
 
+@media (max-width: 600px){
+    .weatherbox .info{
+        display: grid;
+        grid-template-rows: repeat(10,1fr);
+        height: inherit;
+    }
+    .weatherbox .info .moodandday{
+        grid-row:6/ span 10 ;
+    }
+    .weatherbox .info .deg{
+        grid-row: 1 /span 5;
+    }
+}

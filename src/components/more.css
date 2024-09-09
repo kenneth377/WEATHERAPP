@@ -58,3 +58,31 @@
 .lottiedescr .big{
     font-size: 500%;
 }
+
+@media (max-width: 600px){
+    .App>.container .morebox{
+        display: grid;
+        place-content: center;
+        background-color: red;
+        height: 60%;
+    }
+    
+    .lottiedescr{
+        float: right;
+        width: 100%;
+        height: 100%;
+        justify-self: center;
+
+    }
+    .lottiedescr h1{
+        font-size: 300%;
+    }
+    .lottiedescr .win{
+        font-size: 600%;
+    }
+
+    .lottiedescr .hum{
+        font-size: 300%;
+    }
+    
+}

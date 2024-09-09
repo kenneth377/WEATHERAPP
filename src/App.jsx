@@ -121,6 +121,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
+        <button onClick={toggleVisibility}> {isVisible ? 'X' :  <Lottie className='searchlottie' animationData={searchlottie}/>}</button>
         <Weather loc={location} data={weatherData} error={error} prevcitychange={prevcitychange} coord={latlon}/>
         <Searchbox searchbycity={searchbycity} getprevcity={getprevcity} prevcitychange={prevcitychange}/>
         <More data={weatherData} error={error}/>
