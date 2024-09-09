@@ -1,17 +1,9 @@
-.App .container .weatherbox{
-    grid-column: span 7;
-    grid-row: span 3;
-    display: grid;
-    grid-template-columns: repeat(10,1fr);
-    grid-template-rows: repeat(10,1fr);
-  }
-
 .weatherbox .locandtime{
     grid-column: 1/span 10;
     grid-row: span 3;
     display: grid;
     place-content: center;
-    font-size: 150%;
+    font-size: 120%;
     border-bottom: 1px solid var(--other-color);
 }
 
@@ -49,8 +41,6 @@
     justify-content: center;
     grid-row: span 10;
     grid-column: span 4;
-    width: 100%;
-    height: 100%;
 }
 
 .weatherbox .icon img{
@@ -58,24 +48,3 @@
     height: 70%;
 }
 
-@media (max-width: 600px){
-    .App>.container .weatherbox{
-        grid-row: span 4;
-    }
-    .weatherbox h1{
-        font-size: 200%;
-    }
-    .weatherbox .info{
-        display: grid;
-        grid-template-rows: repeat(10,1fr);
-        height: inherit;
-        font-size: 120%;
-    }
-    .weatherbox .info .moodandday{
-        /* grid-row:6/ span 10 ; */
-    }
-    .weatherbox .info .deg{
-        /* font-size: 600%; */
-        grid-row: 1 /span 5;
-    }
-}
