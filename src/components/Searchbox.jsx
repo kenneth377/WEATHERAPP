@@ -1,26 +1,14 @@
 import React, { useState } from 'react';
 import './searchbox.css';
-import { useToast } from '@chakra-ui/react';
 
 export default function Searchbox({ searchbycity, prevcitychange,getprevcity }) {
   const [inputval, setInputval] = useState("");
-  const toast = useToast()
 
   function trackval(e) {
     setInputval(e.target.value);
   }
 
   function handlesearch() {
-    if(inputval === ""){
-      toast({
-        title: 'City not found.',
-        description:"Please enter a city to search",
-        status: 'info',
-        duration: 4000,
-        isClosable: true,
-      })
-      return;
-    }
     if(getprevcity().toLowerCase() === inputval.toLowerCase()){
       setInputval("");
       return;
@@ -28,15 +16,6 @@ export default function Searchbox({ searchbycity, prevcitychange,getprevcity }) 
     if (inputval.trim()) {
       searchbycity(inputval);
       setInputval("");
-    }
-    else{
-      toast({
-        title: 'City not found.',
-        description: "Please enter a city to search for",
-        status: 'error',
-        duration: 4000,
-        isClosable: true,
-      })
     }
   } 
 

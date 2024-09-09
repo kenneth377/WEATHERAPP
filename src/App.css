@@ -11,8 +11,8 @@
 }
 
 :root[datatemp="hot"]{
-  --primary-color: rgba(139, 63, 0, 0.8);
-  --secondary-color: aliceblue; 
+  --primary-color: rgba(139, 19, 0, 0.8);
+  --secondary-color: rgb(255, 248, 240); 
   --other-color: antiquewhite;
   --scrollcolor: darkblue;
  }
