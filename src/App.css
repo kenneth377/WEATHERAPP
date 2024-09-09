@@ -53,9 +53,15 @@
 
 
 @media (max-width: 600px) {
+  *{
+    font-size: 104%;
+  }
   .App {
     height: 100vh;
     width: 100vw;
     font-size: 50%;
+  }
+  .App .container>div{
+    grid-row: span 9;
   }
 }

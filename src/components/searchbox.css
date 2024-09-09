@@ -35,5 +35,9 @@
      .App>.container .searchbox input::placeholder{
         font-size: 70%;
      }
+
+     .searchbox input{
+        width: 100%;
+     }
 }
 
