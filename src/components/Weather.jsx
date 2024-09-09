@@ -16,7 +16,7 @@ export default function Weather({ loc, data, error,prevcitychange,coord }) {
   const timekey = process.env.REACT_APP_TIME_KEY
   const[datatemp,setDataTemp] = useState("cool")
 
-  const toast = useToast()
+  // const toast = useToast()
   
 
   useEffect(() => {
@@ -31,11 +31,11 @@ export default function Weather({ loc, data, error,prevcitychange,coord }) {
       .catch(error => console.error('Error fetching time data:', error));
   }, [data]);
 
-  useEffect(() => {
-    if (error) {
-      prevcitychange("");
-    }
-  }, [error, prevcitychange]);
+  // useEffect(() => {
+  //   if (error) {
+  //     prevcitychange("");
+  //   }
+  // }, [error, prevcitychange]);
 
   useEffect(() => {
     if (data) {
@@ -54,10 +54,10 @@ export default function Weather({ loc, data, error,prevcitychange,coord }) {
     document.documentElement.setAttribute('datatemp', datatemp)
   },[datatemp])
   
-  if (error) {
-    prevcitychange("")
-    return <p className='err'>{error}</p>;
-  }
+  // if (error) {
+  //   prevcitychange("")
+  //   return <p className='err'>{error}</p>;
+  // }
 
   if (!data || !loc) {
     return <Lottie animationData={loader}/>;
@@ -69,10 +69,16 @@ export default function Weather({ loc, data, error,prevcitychange,coord }) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
+ 
   return (
     <div className='weatherbox'>
       <div className="locandtime">
-        {loc.state ? `${loc.state}, ` : ''}{loc.name},{loc.country} As of {now.getHours()>= 0 && now.getHours()<= 9 ? `0${now.getHours()}`:now.getHours()}:{now.getMinutes()>=0 && now.getMinutes<=9 ? `0${now.getMinutes()}`:now.getMinutes()} {zone}
+        {
+        loc.state ? `${loc.state}, ` : ''}{loc.name},{loc.country} As of {now.getHours()>= 0 && now.getHours()<= 9 ? `${now.getHours()}`
+        :now.getHours()}: 
+        {now.getMinutes()>=0 && now.getMinutes()<=9 ? 
+        `0${now.getMinutes()}`
+        :now.getMinutes()} {zone}
       </div>
       <div className="info">
         <div className="deg">

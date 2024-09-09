@@ -45,7 +45,7 @@ function App() {
       .catch(err => {
         toast({
           title: 'City not found.',
-          description: "Please check the city entered to see if there is a mix-up.",
+          description: "Please check the city entered to see if there is a mix-up. If all seems to be fine, check your internet connectivity",
           status: 'error',
           duration: 4000,
           isClosable: true,

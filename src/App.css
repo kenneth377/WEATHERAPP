@@ -13,7 +13,7 @@
 :root[datatemp="hot"]{
   --primary-color: rgba(139, 19, 0, 0.8);
   --secondary-color: rgb(255, 248, 240); 
-  --other-color: antiquewhite;
+  --other-color: rgb(244, 195, 132);
   --scrollcolor: darkblue;
  }
 
