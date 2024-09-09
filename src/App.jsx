@@ -4,7 +4,8 @@ import Weather from './components/Weather';
 import Searchbox from './components/Searchbox';
 import More from './components/More';
 import { useToast } from '@chakra-ui/react';
-
+import Lottie from 'lottie-react';
+import searchlottie from "../src/components/searchlottie.json"
 function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [location, setLocation] = useState(null);
@@ -12,6 +13,12 @@ function App() {
   const [latlon , setLatLon] = useState({"lon":-0.1969,"lat":5.556});
   const [prevcity, setPrevCity] = useState("");
   const toast = useToast()
+  const [isVisible, setIsVisible] = useState(true);
+  
+
+  const toggleVisibility = () => {
+    setIsVisible(prevState => !prevState);
+  };
 
   const API_KEY = process.env.REACT_APP_API_KEY
 
@@ -121,7 +128,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <button onClick={toggleVisibility}> {isVisible ? 'X' :  <Lottie className='searchlottie' animationData={searchlottie}/>}</button>
+        <button onClick={toggleVisibility}> {isVisible ? 'X' :  <Lottie animationData={searchlottie}/>}</button>
         <Weather loc={location} data={weatherData} error={error} prevcitychange={prevcitychange} coord={latlon}/>
         <Searchbox searchbycity={searchbycity} getprevcity={getprevcity} prevcitychange={prevcitychange}/>
         <More data={weatherData} error={error}/>
